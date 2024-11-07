@@ -1,0 +1,169 @@
+
+/* Estilos básicos para o site da pizzaria Boun Gusto */
+
+:root {
+    --background-color: #FFF5E4; /* Branco quente */
+    --primary-color: #8B0000; /* Vermelho escuro */
+    --secondary-color: #FFD700; /* Dourado */
+    --text-color: #333;
+    --border-radius: 5px;
+    --padding: 10px;
+    --header-height: 100px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    max-width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--background-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: calc(var(--header-height) + 20px) 20px 20px; /* Espaço para o cabeçalho fixo */
+}
+
+.banner {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.banner button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transition: background-color 0.3s;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.product {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    margin: 20px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--padding) 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #8B0000; /* Vermelho mais escuro */
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Outros estilos que você pode ter */
+
+#contact {
+    text-align: auto;
+}
+
+.contact-box {
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background-color: #fff;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product {
+        width: 100%; /* Largura completa em dispositivos móveis */
+        margin: 10px 0; /* Margem reduzida */
+    }
+}
+
+/* Adicione este código ao seu CSS */
+.product img {
+    width: 150px; /* Defina a largura que você preferir */
+    height: 150px; /* Defina a altura que você preferir */
+    object-fit: cover; /* Ajusta a imagem para preencher o espaço sem distorção */
+    border-radius: 8px; /* (Opcional) Arredonda levemente as bordas */
+}
+
+/* Adicione este código ao seu CSS */
+.stars {
+    color: #FFD700; /* Código hexadecimal para amarelo ouro */
+    font-size: 1.2em; /* (Opcional) Ajusta o tamanho das estrelas */
+}

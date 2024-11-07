@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pizzaria Boun Gusto</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos para o cabeçalho */
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Estilos para o banner */
+        .banner {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #b22222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .social-links a {
+            margin-right: 10px;
+            color: #b22222;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos para as caixas de comentários */
+        .comments-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .comments-page {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comment-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            background-color: #f9f9f9;
+        }
+
+        .comment h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .comment p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .stars {
+            color: gold;
+            font-size: 18px;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #b22222;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .pagination button:hover {
+            background-color: #a11d1d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Pizzaria Boun Gusto</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="carrinho.html">Carrinho (<span id="carrinho-quantidade">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <img src="banner.jpg" alt="Banner da Pizzaria Boun Gusto" class="banner-img">
+        <div class="banner-content">
+            <h2>Bem-vindo à Pizzaria Boun Gusto!</h2>
+            <p>Onde cada fatia conta uma história de sabor e tradição italiana.</p>
+            <button onclick="location.href='menu.html'">Conheça Nosso Menu</button>
+        </div>
+    </section>
+    
+    <!-- Sobre Nós -->
+    <section id="about" class="about">
+        <h2>Sobre a Boun Gusto</h2>
+        <p>
+            Fundada com a paixão por oferecer as melhores pizzas da cidade, a Pizzaria Boun Gusto combina ingredientes frescos e de alta qualidade com técnicas tradicionais italianas. Nossa missão é proporcionar uma experiência gastronômica autêntica e inesquecível em cada fatia.
+        </p>
+    </section>
+
+    <!-- Destaques do Menu -->
+    <section id="menu-highlights" class="menu-highlights">
+        <h2>Conheça Nossos Destaques</h2>
+        <div class="product">
+            <img src="pizza1.jpg" alt="Pizza Margherita">
+            <h3>Margherita</h3>
+            <p>Molho de tomate caseiro, mussarela fresca e manjericão.</p>
+        </div>
+
+        <div class="product">
+            <img src="pizza2.jpg" alt="Pizza Pepperoni">
+            <h3>Pepperoni</h3>          
+            <p>Uma clássica e irresistível combinação de pepperoni e queijo.</p>
+        </div>
+
+        <div class="product">
+            <img src="pizza3.jpg" alt="Pizza Quattro Formaggi">
+            <h3>Quattro Formaggi</h3>
+            <p>Mistura perfeita de quatro queijos selecionados.</p>          
+        </div>
+        
+        <div class="product">
+            <img src="pizza4.jpg" alt="Pizza de Chocolate">
+            <h3>Pizza de Chocolate</h3>
+            <p>Uma sobremesa deliciosa para encerrar a refeição com chave de ouro.</p>
+        </div>
+    </section>
+
+    <!-- Comentários de Clientes com Paginação -->
+    <section id="comments" class="comments-section">
+        <h2>Avaliações dos Nossos Clientes</h2>
+        <div class="comments-container">
+            <div class="comments-page" id="page-0">
+                <div class="comment-box">
+                    <h3>Maria Silva</h3>
+                    <p>"As melhores pizzas que já experimentei! A Margherita é divina!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="comment-box">
+                    <h3>João Oliveira</h3>
+                    <p>"Adorei a pizza de Pepperoni! Super saborosa e bem recheada."</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="comment-box">
+                    <h3>Ana Paula</h3>
+                    <p>"A Quattro Formaggi é a minha favorita! Recomendo a todos!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="comments-page" id="page-1" style="display: none;">
+                <div class="comment-box">
+                    <h3>Lucas Mendes</h3>
+                    <p>"Excelente atendimento e um ambiente muito agradável. Pizza perfeita!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="comment-box">
+                    <h3>Fernanda Souza</h3>
+                    <p>"A pizza de chocolate é divina! Sobremesa dos deuses!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="comment-box">
+                    <h3>Ricardo Santos</h3>
+                    <p>"Experiência incrível, e a massa é impecável!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="comments-page" id="page-2" style="display: none;">
+                <div class="comment-box">
+                    <h3>Cláudia Lima</h3>
+                    <p>"Ambiente acolhedor e pizza deliciosa. Vale cada centavo!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="comment-box">
+                    <h3>Carlos Eduardo</h3>
+                    <p>"A melhor pizza que já comi! Atendimento excelente!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="comment-box">
+                    <h3>Juliana Pereira</h3>
+                    <p>"Pizza de qualidade e atendimento impecável. Voltarei com certeza!"</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação de Páginas -->
+        <div class="pagination">
+            <button onclick="showPage(0)">1</button>
+            <button onclick="showPage(1)">2</button>
+            <button onclick="showPage(2)">3</button>
+        </div>
+    </section>
+
+    <!-- Localização e Contato -->
+    <section id="contact-info">
+        <h2>Visite-nos ou Entre em Contato</h2>
+        <p>Endereço: Rua das Hortências, 817 - Jardim do Estádio, Santo André - SP</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@pizzariaboungusto.com</p>
+        <div class="social-links">
+            <a href="https://api.whatsapp.com/send/?phone=551134370605&text=Gostaria+de+pedir+uma+pizza&type=phone_number&app_absent=0" target="_blank">
+                <img src="whats.png" alt="WhatsApp" style="width: 30px; height: 30px; vertical-align: middle;"> WhatsApp
+            </a>
+            <a href="https://www.facebook.com/buongusto.com.br/" target="_blank">
+                <img src="face.png" alt="Facebook" style="width: 30px; height: 30px; vertical-align: middle;"> Facebook</a>
+            <a href="https://www.instagram.com/pizzaria_buongusto/" target="_blank">
+                <img src="insta.png" alt="Instagram" style="width: 30px; height: 30px; vertical-align: middle;"> Instagram</a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Pizzaria Boun Gusto - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script para alternar o menu no mobile e navegação de comentários -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        let currentPage = 0;
+        const totalPages = 3;
+
+        function showPage(pageIndex) {
+            for (let i = 0; i < totalPages; i++) {
+                document.getElementById(`page-${i}`).style.display = i === pageIndex ? 'block' : 'none';
+            }
+            currentPage = pageIndex;
+        }
+    </script>
+</body>
+</html>
+  

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Carrinho - Pizzaria Boun Gusto</title>
+</head>
+<body>
+    <header>
+        <h1>Pizzaria Boun Gusto</h1>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="carrinho.html">Carrinho (<span id="carrinho-quantidade">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="carrinho">
+            <h2>Seu Carrinho</h2>
+            <ul id="lista-carrinho"></ul>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Endereço: Rua das Hortências, 817 - Jardim do Estádio, Santo André - SP</p>
+        <p>&copy; 2024 Pizzaria Boun Gusto</p>
+    </footer>
+
+    <script>
+        function atualizarQuantidadeCarrinho() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const quantidadeCarrinho = document.getElementById('carrinho-quantidade');
+            quantidadeCarrinho.textContent = carrinho.length; // Atualiza o número de itens no carrinho
+        }
+
+        function carregarCarrinho() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const listaCarrinho = document.getElementById('lista-carrinho');
+            listaCarrinho.innerHTML = ''; // Limpa a lista antes de carregar
+
+            if (carrinho.length === 0) {
+                listaCarrinho.innerHTML = '<li>Seu carrinho está vazio.</li>';
+            } else {
+                carrinho.forEach(pizza => {
+                    const li = document.createElement('li');
+                    li.textContent = pizza;
+                    listaCarrinho.appendChild(li);
+                });
+            }
+        }
+
+        function finalizarCompra() {
+            alert('Compra finalizada! Obrigado por escolher a Pizzaria Boun Gusto!');
+            localStorage.removeItem('carrinho'); // Limpa o carrinho após finalizar
+            carregarCarrinho(); // Atualiza a lista do carrinho
+            atualizarQuantidadeCarrinho(); // Atualiza a quantidade no menu
+        }
+
+        // Atualiza a quantidade ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            atualizarQuantidadeCarrinho();
+            carregarCarrinho();
+        });
+    </script>
+</body>
+</html>

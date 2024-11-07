@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pizzaria Boun Gusto - Contato</title>
+    <style>
+        /* Estilos básicos para o site da pizzaria Boun Gusto */
+        :root {
+            --background-color: #FFF5E4; /* Branco quente */
+            --primary-color: #8B0000; /* Vermelho escuro */
+            --secondary-color: #FFD700; /* Dourado */
+            --text-color: #333;
+            --border-radius: 5px;
+            --padding: 10px;
+            --header-height: 100px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Altura mínima da página para que o footer fique no fundo */
+            margin: 0; /* Remove margens do corpo */
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--background-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1; /* Permite que o main ocupe o espaço restante */
+            padding: calc(var(--header-height) + 20px) 20px 20px; /* Espaço para o cabeçalho fixo */
+        }
+
+        .contact-box {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            background-color: #fff;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .form-response {
+            background-color: #f0f0f0; /* Cor de fundo leve */
+            border: 1px solid #d1d1d1; /* Borda cinza */
+            padding: 15px; /* Espaçamento interno */
+            margin-bottom: 20px; /* Espaço abaixo */
+            border-radius: var(--border-radius); /* Cantos arredondados */
+            font-size: 1.1em; /* Aumenta o tamanho da fonte */
+            color: var(--text-color); /* Cor do texto */
+            display: none; /* Oculta por padrão */
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            text-align: center;
+            padding: 15px; /* Adiciona espaçamento interno */
+            position: relative; /* Garante que o footer esteja em posição relativa */
+            bottom: 0; /* Coloca o footer na parte inferior */
+            width: 100%; /* Largura total do footer */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pizzaria Boun Gusto</h1>
+        <nav>
+            <ul id="menu" role="navigation">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="carrinho.html">Carrinho (<span id="carrinho-quantidade">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Fale Conosco</h2>
+        <div class="contact-box">
+            <div id="formResponse" class="form-response"></div> <!-- Mensagem de resposta -->
+            <form id="contactForm" onsubmit="return handleSubmit(event);">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Endereço: Rua das Hortências, 817 - Jardim do Estádio, Santo André - SP</p>
+        <p>&copy; 2024 Pizzaria Boun Gusto</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Evita o envio do formulário
+            const name = document.getElementById('name').value; // Captura o nome
+            const email = document.getElementById('email').value; // Captura o email
+            const response = document.getElementById('formResponse');
+            response.innerText = `Obrigado, ${name}! Entraremos em contato com você pelo e-mail ${email}.`;
+            response.style.display = 'block'; // Exibe a mensagem
+            document.getElementById('contactForm').reset(); // Reseta o formulário
+        }
+    </script>
+</body>
+</html>
