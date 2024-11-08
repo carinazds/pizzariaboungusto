@@ -1,0 +1,11 @@
+collections:
+  - name: pages
+    label: Páginas
+    path: content/pages
+    fields:
+      - name: title
+        label: Título
+        type: text
+      - name: body
+        label: Conteúdo
+        type: markdown
