@@ -1,0 +1,13 @@
+[build]
+  publish = "."   # Diretório raiz do seu projeto
+  command = ""    # Sem comando de build, pois o site é estático
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
