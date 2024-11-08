@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway  # Usa o GitHub como backend
+  branch: main       # Branch principal do repositório (geralmente 'main' ou 'master')
+
+media_folder: "uploads"  # Onde as imagens serão salvas no repositório
+public_folder: "/uploads"  # Caminho público onde as imagens serão acessíveis
+
+collections:
+  - name: "pages"  # Nome da coleção (onde estarão as páginas)
+    label: "Páginas"  # Rótulo que aparecerá no CMS
+    files:
+      - label: "Página Inicial"
+        name: "home"
+        file: "content/home.md"  # Local onde o conteúdo da página será salvo
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Conteúdo", name: "body", widget: "markdown" }
+          
+      - label: "Sobre"
+        name: "about"
+        file: "content/about.md"  # Local onde o conteúdo da página será salvo
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Conteúdo", name: "body", widget: "markdown" }

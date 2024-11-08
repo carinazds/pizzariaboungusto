@@ -4,23 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin</title>
-  <!-- Widget de identidade Netlify para login e autenticação -->
+  <!-- Widget de identidade Netlify para login -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    // Inicializa o widget do Netlify Identity
-    if (window.NetlifyIdentity) {
-      // Ao fazer login, redireciona para a página do CMS
-      window.NetlifyIdentity.on('login', (user) => {
-        window.location.href = '/admin/'; // Redireciona para a página de administração
-      });
-
-      // Inicializa o Netlify Identity Widget
-      window.NetlifyIdentity.init();
-    }
-  </script>
 </head>
 <body>
-  <!-- Código do Netlify CMS -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.open();  // Abre o login automaticamente se o usuário não estiver autenticado
+        }
+      });
+    }
+  </script>
+
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </body>
 </html>

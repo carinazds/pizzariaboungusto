@@ -1,6 +1,7 @@
 [build]
-  publish = "."   # Diretório raiz do seu projeto
-  command = ""    # Sem comando de build, pois o site é estático
+  publish = "."  # Diretório raiz do seu projeto
+  command = "npm run build"  # Comando para build, se você tiver algum (opcional)
+  functions = "netlify/functions"  # Funções serverless, se você usar
 
 [[redirects]]
   from = "/admin/*"
