@@ -6,6 +6,18 @@
   <title>Admin</title>
   <!-- Widget de identidade Netlify para login e autenticação -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // Inicializa o widget do Netlify Identity
+    if (window.NetlifyIdentity) {
+      // Ao fazer login, redireciona para a página do CMS
+      window.NetlifyIdentity.on('login', (user) => {
+        window.location.href = '/admin/'; // Redireciona para a página de administração
+      });
+
+      // Inicializa o Netlify Identity Widget
+      window.NetlifyIdentity.init();
+    }
+  </script>
 </head>
 <body>
   <!-- Código do Netlify CMS -->
